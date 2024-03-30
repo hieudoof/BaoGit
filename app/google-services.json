@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "913047545200",
+    "project_id": "thiketthucmon-3db49",
+    "storage_bucket": "thiketthucmon-3db49.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:913047545200:android:8c37e0e4c39e8a26ac9bb5",
+        "android_client_info": {
+          "package_name": "com.example.appbao2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAObUYMsjsFe3sT7EdKgn10OyXhqDW4qOw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:913047545200:android:91ea4bad7c5dd9abac9bb5",
+        "android_client_info": {
+          "package_name": "com.example.userdemo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAObUYMsjsFe3sT7EdKgn10OyXhqDW4qOw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

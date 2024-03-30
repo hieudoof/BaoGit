@@ -33,25 +33,16 @@ public class MainActivity extends AppCompatActivity {
 
                 if (itemId == R.id.navHome) {
                     loadFragment(new HomeFragment(),false);
-
-
                 }else if (itemId == R.id.navProfile) {
                     loadFragment(new ProfileFragment(),false);
-
                 }else { //nav favourite
                     loadFragment(new favouriteFragment(),false);
-
                 }
-
-
                 return true;
             }
         });
 
         loadFragment(new HomeFragment(),true);
-
-
-
     }
 
     private void loadFragment(Fragment fragment, boolean isAppInitialized){
@@ -65,8 +56,6 @@ public class MainActivity extends AppCompatActivity {
         }else {
             fragmentTransaction.replace(R.id.frameLayout,fragment);
         }
-
-
         fragmentTransaction.commit();
 
     }
