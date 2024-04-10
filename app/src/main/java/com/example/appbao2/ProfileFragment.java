@@ -21,6 +21,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import com.example.appbao2.activity.CalendaActivity;
 import com.example.appbao2.activity.EditProfileActivity;
 import com.example.appbao2.activity.LoginActivity;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -46,7 +47,7 @@ public class ProfileFragment extends Fragment {
     String userid;
     ProgressBar progressBar;
     FirebaseUser user;
-    ImageView profileImage;
+    ImageView profileImage,btnImageCalenda;
 
     StorageReference storageReference;
 
@@ -55,7 +56,22 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        //Khai bao FindByID
         initViews(view);
+        //Lay du lieu nguoi dung
+        getDataUser();
+        //Reset lai mat khau
+        resetPassword();
+
+
+        btnImageCalenda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), CalendaActivity.class));
+            }
+        });
+
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,6 +81,7 @@ public class ProfileFragment extends Fragment {
 
             }
         });
+        //Chuyen den EditProfileActivity
         changeprofileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,9 +89,7 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        getDataUser();
-        resetPassword();
-        ChangeProfileImage();
+
        // Dang nhap vao se load anh
         StorageReference profileRef = storageReference.child("users/"+fAuth.getCurrentUser().getUid()+"/profile.jpg");
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -84,6 +99,8 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        //Thay doi du lieu nguoi dung
+        ChangeProfileImage();
 
         return view;
     }
@@ -133,6 +150,7 @@ public class ProfileFragment extends Fragment {
         profileImage = view.findViewById(R.id.imageView);
         changeprofileImage = view.findViewById(R.id.btnChangeProfile);
         profileImage = view.findViewById(R.id.imageView);
+        btnImageCalenda = view.findViewById(R.id.BtnImageCalenda);
 
         fStore = FirebaseFirestore.getInstance();
         fAuth = FirebaseAuth.getInstance();

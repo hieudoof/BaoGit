@@ -1,17 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/images"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".favouriteFragment">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:text="Favourite fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="ExtraText">
 
-</FrameLayout>
+        <!-- RecyclerView để hiển thị danh sách các bài báo -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_favorite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:clipToPadding="false"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="8dp"
+            android:scrollbars="vertical"
+            android:divider="@drawable/divider"
+        />
+        <!-- Layout cho màn hình không có dữ liệu -->
+        <LinearLayout
+            android:id="@+id/layout_empty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Không có bài báo yêu thích"
+                android:textSize="18sp" />
+
+
+        </LinearLayout>
+
+        <!-- TextView để hiển thị thông tin về các bài báo -->
+        <TextView
+            android:id="@+id/text_view_articles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/text_view_empty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Danh sách yêu thích trống"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
